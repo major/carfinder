@@ -1,0 +1,76 @@
+interactions:
+- request:
+    body: '{"query": "{\n  models(zipCd: \"90210\", brand: \"T\") {\n    modelCode\n    title\n  }\n}"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '92'
+      Content-Type:
+      - application/json
+      origin:
+      - https://www.toyota.com
+      referrer:
+      - https://www.toyota.com/
+      user-agent:
+      - Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.14) Gecko/2009082505 Red Hat/3.0.14-1.el5_4
+        Firefox/3.0.14
+    method: POST
+    uri: https://api.search-inventory.toyota.com/graphql
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA4xUwW6DMAz9lSjn7oamqbcKbeulWkWratq0Q4CoRIOkM6Ebrfj3QWBVGhO6C+Dn
+        5+jZeeZMU6YZnZ9poVKel3T+PnyG7YPOaaJA5TlLQJVlVscgUjqjWui8S4Z9koRdliz7dDNzTmAF
+        1HaRiV0WsGNgkaLFLhjlHEAU3CGStQFd+h6YTDOxz/L2zQGpf+7yZHkh+BrQlUyBofKtgYm4e3qJ
+        wkeyWryiylZsVVolaxNjncOQbW0RGYaL6AFUUnKwyEHUI2jy/Qnea/P0e+TyZGvZmRirLqsDOJo3
+        BnKphQAmLOLKxKM+wVo71Gsty5w+W+LrZIkqbN3bHrhhnwnjoNIJ0/3XbshovuZx3+M2dBfHeNGz
+        OVrVSndj/Za2DoN2U21ht6TkX5UStprNgOC5PtxfuaYNxzYdjc6sumdoo/c0cUN/q8F0ksUs+Rzb
+        jksO9Sq4lFet9oDLi0/Bj8WK34L2F/HRNL8AAAD//wMAbe2KvnUFAAA=
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - x-amzn-RequestId,x-amzn-ErrorType,x-amz-user-agent,x-amzn-ErrorMessage,Date,x-amz-schema-version
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '383'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Fri, 14 Jul 2023 19:54:40 GMT
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 1bfde73e7d02732154f58c7e03609d08.cloudfront.net (CloudFront), 1.1 21d788b44c2b3d335a275c07a54548b6.cloudfront.net
+        (CloudFront)
+      X-Amz-Cf-Id:
+      - foGIHYSsnZnfMbYUronuTzIQFcOR5YDwhtQ6zgAe8ALWCM6_VERfjQ==
+      X-Amz-Cf-Pop:
+      - HIO50-C2
+      - DEN52-P3
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - IEcwBG5nvHcFwyg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Date:
+      - Fri, 14 Jul 2023 19:54:40 GMT
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 08b18645-4ce6-4173-a6f2-c8378749e115
+      x-amzn-RequestId:
+      - dc2fc1a8-006e-4360-97d3-dad29cb4e10e
+      x-amzn-appsync-TokensConsumed:
+      - '1'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,74 @@
+interactions:
+- request:
+    body: '{"query": "{\n  models(zipCd: \"90210\", brand: \"L\") {\n    modelCode\n    series\n  }\n}"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '93'
+      Content-Type:
+      - application/json
+      origin:
+      - https://www.lexus.com
+      referrer:
+      - https://www.lexus.com/
+      user-agent:
+      - Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/532.0 (KHTML,
+        like Gecko) Chrome/4.0.212.0 Safari/532.0
+    method: POST
+    uri: https://api.search-inventory.toyota.com/graphql
+  response:
+    body:
+      string: '{"data":{"models":[{"modelCode":"ls","series":"LS"},{"modelCode":"rc","series":"RC"},{"modelCode":"rx","series":"RX"},{"modelCode":"lch","series":"LC
+        HYBRID"},{"modelCode":"nxh","series":"NX HYBRID"},{"modelCode":"rcf","series":"RC
+        F"},{"modelCode":"esh","series":"ES HYBRID"},{"modelCode":"rx500h","series":"RX
+        500h"},{"modelCode":"lc","series":"LC"},{"modelCode":"NXphev","series":"NX
+        PHEV"},{"modelCode":"is","series":"IS"},{"modelCode":"LCCV","series":"LC CONVERTIBLE"},{"modelCode":"rxh","series":"RX
+        HYBRID"},{"modelCode":"lx","series":"LX"},{"modelCode":"uxh","series":"UX
+        HYBRID"},{"modelCode":"is500","series":"IS 500"},{"modelCode":"rz","series":"RZ"},{"modelCode":"gx","series":"GX"},{"modelCode":"lsh","series":"LS
+        HYBRID"},{"modelCode":"es","series":"ES"},{"modelCode":"nx","series":"NX"}]}}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - x-amzn-RequestId,x-amzn-ErrorType,x-amz-user-agent,x-amzn-ErrorMessage,Date,x-amz-schema-version
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '804'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Fri, 14 Jul 2023 20:04:13 GMT
+      Via:
+      - 1.1 078213358ed22cd95c76373c4ed65b5a.cloudfront.net (CloudFront), 1.1 fdb71c154448c5637ac452d623bb2ad6.cloudfront.net
+        (CloudFront)
+      X-Amz-Cf-Id:
+      - ZOM8H-GFBg_vgXRdloUwdedrWsMKYs03DhWhergoBIo8fNGPf9xNXw==
+      X-Amz-Cf-Pop:
+      - HIO50-C2
+      - DEN52-P3
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - IEeJpGEmvHcFrBQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '804'
+      x-amzn-Remapped-Date:
+      - Fri, 14 Jul 2023 20:04:13 GMT
+      x-amzn-Remapped-x-amzn-RequestId:
+      - cac23ecb-f758-4893-ab91-f710f3ea254c
+      x-amzn-RequestId:
+      - 53759a8f-f375-4eba-af7c-8868f284d33e
+      x-amzn-appsync-TokensConsumed:
+      - '1'
+    status:
+      code: 200
+      message: OK
+version: 1
