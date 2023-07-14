@@ -11,4 +11,6 @@ Search vehicle inventory from multiple manufacturers.
 - **Github repository**: <https://github.com/major/carfinder/>
 - **Documentation** <https://major.github.io/carfinder/>
 
+Built from the [cookiecutter-poetry repo](https://github.com/fpgmaas/cookiecutter-poetry) originally.
+
 _Work in progress._
