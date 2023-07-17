@@ -4,15 +4,10 @@ from unittest import mock
 import pytest
 
 from carfinder import client
-from carfinder.manufacturers.toyota import Toyota
 
 
 class TestToyota:
     """Testing the Toyota lookups."""
-
-    def test_make_black_happy(self):
-        """Black tries to remove the import Toyota line above which breaks the test."""
-        assert Toyota is None
 
     @pytest.mark.vcr()
     def test_get_models(self):

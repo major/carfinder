@@ -6,7 +6,6 @@ from typing import Any
 from gql import Client, gql
 from gql.transport.requests import RequestsHTTPTransport
 
-from carfinder import register_manufacturer
 from carfinder.manufacturers import BaseManufacturer
 from carfinder.utils import get_valid_usa_distance, random_user_agent
 
@@ -142,7 +141,6 @@ LEXUS_HEADERS = headers = {
 }
 
 
-@register_manufacturer
 @dataclass
 class Lexus(BaseManufacturer):
     """For Lexus lookups."""

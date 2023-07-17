@@ -2,8 +2,10 @@
 from typing import List, Type
 
 from carfinder.manufacturers import BaseManufacturer
+from carfinder.manufacturers.lexus import Lexus
+from carfinder.manufacturers.toyota import Toyota
 
-available_manufacturers: List[Type[BaseManufacturer]] = []
+available_manufacturers: List[Type[BaseManufacturer]] = [Lexus, Toyota]
 
 
 class UnknownManufacturer(Exception):
@@ -12,11 +14,6 @@ class UnknownManufacturer(Exception):
     def __init__(self, manufacturer_name: str):
         """Print a friendly message describing the problem."""
         super().__init__(f"Invalid manufacturer name: {manufacturer_name}")
-
-
-def register_manufacturer(cls: Type[BaseManufacturer]) -> None:
-    """Register a manufacturer."""
-    available_manufacturers.append(cls)
 
 
 def client(manufacturer_name: str) -> BaseManufacturer:
