@@ -17,7 +17,14 @@ class UnknownManufacturer(Exception):
 
 
 def client(manufacturer_name: str) -> BaseManufacturer:
-    """Return the correct client for the specified manufacturer."""
+    """Return the correct client for the specified manufacturer.
+
+    Args:
+        manufacturer_name: Name of a manufacturer, such as `toyota`.
+
+    Returns:
+        A client for the specified manufacturer.
+    """
     for mfr_class in available_manufacturers:
         if mfr_class.brand == manufacturer_name:
             return mfr_class()

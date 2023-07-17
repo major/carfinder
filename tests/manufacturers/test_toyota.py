@@ -23,14 +23,14 @@ class TestToyota:
     def test_get_vehicles_page(self):
         """Verify that we can retrieve a page of vehicles from Toyota."""
         toyota = client("toyota")
-        vehicles = toyota.get_vehicles_page("supra", 1)
+        vehicles = toyota._get_vehicles_page("supra", 1)
         assert isinstance(vehicles, list)
         assert len(vehicles) > 0
 
     def test_get_vehicles(self):
         """Test retrieving multiple vehicles."""
         toyota = client("toyota")
-        with mock.patch.object(toyota, "get_vehicles_page") as mock_get_vehicles_page:
+        with mock.patch.object(toyota, "_get_vehicles_page") as mock_get_vehicles_page:
             mock_get_vehicles_page.side_effect = [
                 [{"name": "vehicle1"}, {"name": "vehicle2"}, {"name": "vehicle3"}],
                 [{"name": "vehicle4"}, {"name": "vehicle5"}, {"name": "vehicle6"}],
@@ -49,7 +49,7 @@ class TestToyota:
     def test_get_vehicles_no_pages(self):
         """Test getting vehicles when no pages are returned."""
         toyota = client("toyota")
-        with mock.patch.object(toyota, "get_vehicles_page") as mock_get_vehicles_page:
+        with mock.patch.object(toyota, "_get_vehicles_page") as mock_get_vehicles_page:
             mock_get_vehicles_page.side_effect = [["vehicle1"] for x in range(1, 10000)]
             vehicles = toyota.get_vehicles("supra")
             assert isinstance(vehicles, list)

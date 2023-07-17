@@ -147,19 +147,26 @@ class Toyota(BaseManufacturer):
 
     brand: str = "toyota"
 
-    def run_query(self, query: str) -> dict[str, Any]:
-        """Run a graphql query."""
+    def _run_query(self, query: str) -> dict[str, Any]:
+        """Run a graphql query.
+
+        Args:
+            query: The graphql query to run.
+
+        Returns:
+            The result of the query as a dict.
+        """
         transport = RequestsHTTPTransport(url="https://api.search-inventory.toyota.com/graphql", headers=TOYOTA_HEADERS)
         client = Client(transport=transport)
         return client.execute(gql(query))
 
-    def get_models(self) -> list[str]:
-        """Get all Toyota models."""
-        result = self.run_query(QUERY_MODELS)
-        return list(result["models"])
+    def _get_vehicles_page(self, model_name: str, page_number: int = 1) -> list[str]:
+        """Get a page of Toyota vehicles.
 
-    def get_vehicles_page(self, model_name: str, page_number: int) -> list[str]:
-        """Get a page of Toyota vehicles."""
+        Args:
+          model_name: Model name to query
+          page_number: Page number to query (default: 1)
+        """
         query = QUERY_VEHICLES
         query = query.replace("ZIP_CODE", "90210")
         query = query.replace("PAGE_NUMBER", f"{page_number}")
@@ -167,16 +174,32 @@ class Toyota(BaseManufacturer):
         query = query.replace("DISTANCE", get_valid_usa_distance())
         query = query.replace("RANDOM_UUID", str(uuid.uuid4()))
 
-        result = self.run_query(query)
+        result = self._run_query(query)
         return list(result["locateVehiclesByZip"]["vehicleSummary"])
 
+    def get_models(self) -> list[str]:
+        """Get a list of Toyota models.
+
+        Returns:
+            A list of Toyota models.
+        """
+        result = self._run_query(QUERY_MODELS)
+        return list(result["models"])
+
     def get_vehicles(self, model_name: str) -> list[str]:
-        """Get all Toyota vehicles."""
+        """Get a list of vehicles from Toyota matching a model_name.
+
+        Args:
+            model_name: Model name of the car, such as `4runner`.
+
+        Returns:
+            A list of vehicles from Toyota matching a model_name.
+        """
         vehicles: list[str] = []
 
         for page_number in range(1, 100):
             # Get a page of vehicles.
-            result = self.get_vehicles_page(model_name, page_number)
+            result = self._get_vehicles_page(model_name, page_number)
 
             # Add the page of vehicles to our running list.
             vehicles.extend(result)
